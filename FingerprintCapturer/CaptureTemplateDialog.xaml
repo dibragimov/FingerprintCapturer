@@ -1,0 +1,39 @@
+﻿<Window x:Class="HorioFingerprintCapturer.CaptureTemplateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="clr-namespace:HorioFingerprintCapturer.Resource"
+        Height="520" Width="410" ResizeMode="NoResize" Closing="Window_Closing">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <GroupBox Header="{x:Static res:Resources.LabelAvailableScanners}">
+                <StackPanel Orientation="Vertical">
+                    <ListBox Width="120" Height="248" Margin="2" Name="lstScanners">
+                    </ListBox>
+                    <Button VerticalAlignment="Top" Content="{x:Static res:Resources.ButtonRefresh}" Click="RefreshScanners" Width="50" Margin="2" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="{x:Static res:Resources.LabelTemplate}" Margin="5 0 0 0">
+                <StackPanel Orientation="Vertical">
+                    <!--<TextBox Width="320" Visibility="Hidden" Margin="2" Height="150" IsReadOnly="True" Name="txtTemplate" TextWrapping="Wrap">
+						
+					</TextBox>-->
+                    <Image Name="fingerImage" Width="228" Height="252" >
+
+                    </Image>
+
+                    <Button VerticalAlignment="Top" Name="btnCapture" Click="CaptureTemplate" Content="{x:Static res:Resources.ButtonCapture}" Width="50" Margin="2,4,2,2" HorizontalAlignment="Left" />
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <GroupBox Header="{x:Static res:Resources.LabelLog}" Margin="0 0 7 0">
+            <StackPanel Orientation="Vertical">
+                <TextBox Width="370" Margin="2,2,0,2" Name="txtLogText" IsReadOnly="True" Height="100" HorizontalAlignment="Left"></TextBox>
+                <Button VerticalAlignment="Top" Click="ClearLog" Content="Clear" Width="50" Margin="2" HorizontalAlignment="Left" />
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button VerticalAlignment="Top" Content="OK" Width="50" Margin="2 2 10 2" Click="Button_Click" />
+            <Button VerticalAlignment="Top" Content="Cancel" Width="50" Margin="2 2 7 2" IsCancel="True" />
+        </StackPanel>
+    </StackPanel>
+</Window>
